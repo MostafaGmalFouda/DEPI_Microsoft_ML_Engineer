@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - General Hospital</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1>Dashboard - {{ hospital.name }}</h1>
+
+            <!-- Add Department Form -->
+            <h2>Add Department</h2>
+            <form method="POST" action="{{ url_for('add_department') }}">
+                <input type="text" name="dept_name" placeholder="Department Name" required>
+                <button type="submit">Add Department</button>
+            </form>
+
+            <!-- Loop Departments -->
+            {% for dept in hospital.departments %}
+            <div class="department-card">
+                <h2>{{ dept.name }}</h2>
+
+                <!-- Add Patient -->
+                <h3>Add Patient</h3>
+                <form method="POST" action="{{ url_for('add_patient') }}">
+                    <input type="hidden" name="dept_name" value="{{ dept.name }}">
+                    <input type="text" name="patient_name" placeholder="Patient Name" required>
+                    <input type="number" name="age" placeholder="Age" required>
+                    <input type="text" name="record" placeholder="Medical Record" required>
+                    <button type="submit">Add Patient</button>
+                </form>
+
+                <ul>
+                    <strong>Patients:</strong>
+                    {% for p in dept.patients %}
+                        <li>{{ p.name }} (Age: {{ p.age }}) - {{ p.view_record() }}</li>
+                    {% else %}
+                        <li>No patients yet.</li>
+                    {% endfor %}
+                </ul>
+
+                <!-- Add Staff -->
+                <h3>Add Staff</h3>
+                <form method="POST" action="{{ url_for('add_staff') }}">
+                    <input type="hidden" name="dept_name" value="{{ dept.name }}">
+                    <input type="text" name="staff_name" placeholder="Staff Name" required>
+                    <input type="number" name="age" placeholder="Age" required>
+                    <input type="text" name="position" placeholder="Position" required>
+                    <button type="submit">Add Staff</button>
+                </form>
+
+                <ul>
+                    <strong>Staff:</strong>
+                    {% for s in dept.staff %}
+                        <li>{{ s.name }} (Age: {{ s.age }}) - {{ s.position }}</li>
+                    {% else %}
+                        <li>No staff yet.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <div class="flash-messages">
+                  {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('hospital.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    width: 450px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+h2, h3 {
+    margin: 15px 0 10px 0;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+form input, form button {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+form input {
+    width: 100%;
+}
+
+form button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+
+.department-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+
+.flash-messages p {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
