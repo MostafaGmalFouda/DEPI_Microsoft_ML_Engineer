@@ -72,22 +72,22 @@ This repository is actively maintained and updated as I progress through the pro
 
 ## 📁 Repository Structure 
 
-ML/
-│
-├── README.md
-│
-├── Course_Name/
-│   ├── Session_01/
-│   │   ├── Assignments/
-│   │   └── Practice_Code/
-│   │
-│   ├── Session_02/
-│   │   ├── Assignments/
-│   │   └── Practice_Code/
-│   │
-│   └── Final_Project/
-│
-└── (More Courses...)
+    ML/
+    │
+    ├── README.md
+    │
+    ├── Course_Name/
+    │   ├── Session_01/
+    │   │   ├── Assignments/
+    │   │   └── Practice_Code/
+    │   │
+    │   ├── Session_02/
+    │   │   ├── Assignments/
+    │   │   └── Practice_Code/
+    │   │
+    │   └── Final_Project/
+    │
+    └── (More Courses...)
 
 *(Structure evolves as I advance in the track.)*
 
@@ -111,9 +111,7 @@ This repository is updated regularly as I complete new assignments and build new
 
 ## 📬 Connect  
 
-- LinkedIn: (https://www.linkedin.com/in/mostafa-gamal-fouda-2645212a4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BeLYeDE%2BpS%2BikqEXPs3G2jw%3D%3D
-<img width="1191" height="46" alt="image" src="https://github.com/user-attachments/assets/6d98b498-0703-4780-bd6b-e3956a884864" />
-)  
+- LinkedIn: (https://www.linkedin.com/in/mostafa-gamal-fouda)  
 - GitHub: (https://github.com/MostafaGmalFouda)  
 
 ---
