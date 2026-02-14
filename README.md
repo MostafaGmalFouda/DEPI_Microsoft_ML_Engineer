@@ -111,7 +111,7 @@ This repository is updated regularly as I complete new assignments and build new
 
 ## 📬 Connect  
 
-- LinkedIn: (https://www.linkedin.com/in/mostafa-gamal-fouda)  
+- LinkedIn: [Mostafa Gamal Fouda](https://www.linkedin.com/in/mostafa-gamal-fouda-2645212a4) 
 - GitHub: (https://github.com/MostafaGmalFouda)  
 
 ---
