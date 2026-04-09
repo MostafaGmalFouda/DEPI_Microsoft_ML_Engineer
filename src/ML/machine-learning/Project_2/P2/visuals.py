@@ -140,6 +140,7 @@ def feature_plot(importances, X_train, y_train):
     pl.ylabel("Weight", fontsize = 12)
     pl.xlabel("Feature", fontsize = 12)
     
+    pl.xticks(rotation=45, ha='right')
     pl.legend(loc = 'upper center')
     pl.tight_layout()
     pl.show()  
