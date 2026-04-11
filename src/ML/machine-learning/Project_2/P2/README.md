@@ -1,56 +1,89 @@
-# Machine Learning Engineer Nanodegree
-# Supervised Learning
-## Project: Finding Donors for CharityML
+# Machine-learning-Project_2-DEPI-R4 
+---
 
-### Install
+# 🚀 Finding Donors for CharityML
+## End-to-End Machine Learning Pipeline & Interactive Dashboard**
 
-This project requires **Python 2.7** and the following Python libraries installed:
+---
 
-- [NumPy](http://www.numpy.org/)
-- [Pandas](http://pandas.pydata.org)
-- [matplotlib](http://matplotlib.org/)
-- [scikit-learn](http://scikit-learn.org/stable/)
+###  📋 Project Overview
+This project is part of the **Machine Learning Engineer Nanodegree**. The objective is to help the non-profit organization **CharityML** identify potential donors. By analyzing the 1994 U.S. Census data, we predict whether an individual's income exceeds **$50,000** per year, enabling more efficient and targeted fundraising campaigns.
 
-You will also need to have software installed to run and execute an [iPython Notebook](http://jupyter.org/index.html)
+---
 
-We recommend students install [Anaconda](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. 
+###  🖥️ Interactive Dash Application
+I have built a comprehensive **Interactive Dashboard** using **Plotly Dash** and **Bootstrap** to make the model results accessible and actionable for non-technical users.
 
-### Code
+**Dashboard Sections:**
 
-Template code is provided in the `finding_donors.ipynb` notebook file. You will also be required to use the included `visuals.py` Python file and the `census.csv` dataset file to complete your work. While some code has already been implemented to get you started, you will need to implement additional functionality when requested to successfully complete the project. Note that the code included in `visuals.py` is meant to be used out-of-the-box and not intended for students to manipulate. If you are interested in how the visualizations are created in the notebook, please feel free to explore this Python file.
+- 📊 Data Visualization:
+  - **-** Interactive charts (Pie charts, Bar plots, Histograms) showing income distribution across demographics like **Education, Age, and Occupation**.
+  - **-** Real-time statistics of the census dataset.
 
-### Run
+- 🤖 Income Prediction Engine:
+  - **-** **"Predict Now" Feature:** Users input personal profile data (Age, Workclass, Education, etc.).
+  - **-** **Live Inference:** The app scales the input and runs it through trained models to provide an instant prediction with a **Confidence Score**.
 
-In a terminal or command window, navigate to the top-level project directory `finding_donors/` (that contains this README) and run one of the following commands:
+- 📈 Model Comparison Dashboard:
+  - **-** Dynamic comparison of metrics: **Accuracy, Precision, Recall, and F1-Score**.
+  - **-** Visual benchmarking to identify and deploy the **"Best Model"**.
 
-```bash
-ipython notebook finding_donors.ipynb
-```  
-or
-```bash
-jupyter notebook finding_donors.ipynb
+---
+
+### 🧪 Project Workflow 
+
+#### 1. Data Exploration & Preprocessing
+- **-** **Log-Transformation:** Applied to highly skewed features like `capital-gain` and `capital-loss`.
+- **-** **Scaling:** Used `MinMaxScaler` to normalize numerical features for equal treatment by algorithms.
+- **-** **Encoding:** Performed **One-Hot Encoding** for categorical variables and binary encoding for the target label.
+
+####  2. Machine Learning Models
+I evaluated four supervised learning algorithms to find the most efficient predictor:
+- **-** **Logistic Regression** (Baseline)
+- **-** **Random Forest** (Ensemble Method)
+- **-** **Gradient Boosting**
+- **-** **XGBoost** (Optimized Model)
+
+#### 3. Model Evaluation & Tuning
+- **-** **Metric:** Used **F-beta score ($\beta = 0.5$)**, prioritizing **Precision** over Recall to minimize wasted resources on low-income individuals.
+- **-** **Optimization:** Used `GridSearchCV` and `RandomizedSearchCV` to fine-tune **XGBoost** hyperparameters.
+
+---
+
+### 📊 Key Results
+- **-- Top 5 Features:** The most critical factors were **marital-status**, **education-num**, and **capital-gain**.
+- **-- Final Model:** The optimized **XGBoost** model achieved:
+  - **-** **Accuracy:** 87.15%
+  - **-** **F-score:** 0.7538
+  - **-** *Significantly outperforming the naive predictor.*
+
+---
+
+###  🛠️ Tech Stack
+- **-** **Language:** Python 3.x
+- **-** **ML Libraries:** Scikit-learn, XGBoost
+- **-** **Web Framework:** Plotly Dash, Dash Bootstrap Components
+- **-** **Data Analysis:** Pandas, NumPy
+- **-** **Visualization:** Plotly, Matplotlib, Seaborn
+
+---
+
+### 📂 Project Structure
+```plaintext
+├── data/                # Raw and processed census data
+├── models/              # Saved .pkl models, scaler, and feature lists
+├── utils/               # Helper scripts for model loading and saving
+├── app.py               # Main Dash application code
+├── visuals.py           # Custom visualization functions
+├── Finding_Donors.ipynb  # Analysis and training notebook
+└── README.md            # Project documentation
 ```
 
-This will open the iPython Notebook software and project file in your browser.
+---
 
-### Data
+###  🏃 How to Run
+1. **-** Clone the repository.
+2. **-** Install dependencies: `pip install -r requirements.txt`.
+3. **-** Run the dashboard: `python app.py`.
+4. **-** Access the app at: `http://127.0.0.1:8050/`.
 
-The modified census dataset consists of approximately 32,000 data points, with each datapoint having 13 features. This dataset is a modified version of the dataset published in the paper *"Scaling Up the Accuracy of Naive-Bayes Classifiers: a Decision-Tree Hybrid",* by Ron Kohavi. You may find this paper [online](https://www.aaai.org/Papers/KDD/1996/KDD96-033.pdf), with the original dataset hosted on [UCI](https://archive.ics.uci.edu/ml/datasets/Census+Income).
-
-**Features**
-- `age`: Age
-- `workclass`: Working Class (Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked)
-- `education_level`: Level of Education (Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool)
-- `education-num`: Number of educational years completed
-- `marital-status`: Marital status (Married-civ-spouse, Divorced, Never-married, Separated, Widowed, Married-spouse-absent, Married-AF-spouse)
-- `occupation`: Work Occupation (Tech-support, Craft-repair, Other-service, Sales, Exec-managerial, Prof-specialty, Handlers-cleaners, Machine-op-inspct, Adm-clerical, Farming-fishing, Transport-moving, Priv-house-serv, Protective-serv, Armed-Forces)
-- `relationship`: Relationship Status (Wife, Own-child, Husband, Not-in-family, Other-relative, Unmarried)
-- `race`: Race (White, Asian-Pac-Islander, Amer-Indian-Eskimo, Other, Black)
-- `sex`: Sex (Female, Male)
-- `capital-gain`: Monetary Capital Gains
-- `capital-loss`: Monetary Capital Losses
-- `hours-per-week`: Average Hours Per Week Worked
-- `native-country`: Native Country (United-States, Cambodia, England, Puerto-Rico, Canada, Germany, Outlying-US(Guam-USVI-etc), India, Japan, Greece, South, China, Cuba, Iran, Honduras, Philippines, Italy, Poland, Jamaica, Vietnam, Mexico, Portugal, Ireland, France, Dominican-Republic, Laos, Ecuador, Taiwan, Haiti, Columbia, Hungary, Guatemala, Nicaragua, Scotland, Thailand, Yugoslavia, El-Salvador, Trinadad&Tobago, Peru, Hong, Holand-Netherlands)
-
-**Target Variable**
-- `income`: Income Class (<=50K, >50K)
